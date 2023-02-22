@@ -1,0 +1,51 @@
+{
+    "mxCartConfiguratorProd": "https://carritos.moonsdental.com/search",
+    "mxCartConfiguratorDev": "https://dev-custom-payments-generator.web.app/login",
+    "userMailDev": "cesar.limon@mymoons.mx",
+    "userPassDev": "12345678",
+
+    "userMailProd": "test.qa@mymoons.mx",
+    "userPassProd": "123qwe",
+
+    "titleUno": "Busca y seleciona un usuario",
+    "titleDos": "Resultado de la búsqueda",
+    "titleTres": "Aún no tienes carritos activos",
+    "titleFirstSection": "Total a pagar",
+
+    "userDeleteCarts": "correo.7080161@mymoons.mx",
+    "paymentCashTestUserMx": "correo.9848126@mymoons.mx",
+    "user2": "correo.4999285@mymoons.mx",
+    "user4": "correo.8583078@mymoons.mx",
+
+    "paymentCashTestUserMx01": "correo.6869845@mymoons.mx",
+    "CartPrice": "$248",
+    
+    "listProduct1": "Más vendidos",
+    "listProduct2": "Citas",
+    "listProduct3": "Alineadores",
+    "listProduct4": "Productos",
+    "listProduct5": "Servicios Dentales",
+
+    "testUserMx": "testCypress1@gmail.mx",
+    "nameUserMx": "test cypress",
+    "lastnameUserMx": "uno dev",
+    "testAppointment": "correo.7648279@mymoons.mx",
+    "testApartado": "",
+    "testPagoComp": "",
+    "testLiquidacion": "",
+
+    "urlDev": "https://ecommerce.moons.rocks",
+    "urlProd": "https://ecommerce.moons.ninja",
+
+    "devCheckout": "https://checkout.moons.rocks",
+    "prodCheckout": "https://checkout.moons.ninja",
+
+    "apiGetAllCarts": "/ecommerce/carts?limit=1",
+    "apiGetAllProducts": "/ecommerce/products?limit=1",
+    "apiGetAllInventory": "/ecommerce/inventory?limit=1",
+    "apiGetAllCustomers": "/ecommerce/customers?limit=1",
+    "apiGetAllPayments": "/ecommerce/payments?limit=1",
+    "apiGetAllDiscounts": "/ecommerce/discount-codes?limit=1",
+    "apiGetAllOrders": "/oms/orders",
+    "apiCheckoutHealth": "/health"
+}

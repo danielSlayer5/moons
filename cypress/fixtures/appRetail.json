@@ -1,0 +1,32 @@
+{
+    "retailCL": "retail.mymoons.cl",
+    "retailCO": "retail.mymoons.co",
+    "retailMX": "retail.mymoons.mx",
+    "retailPE": "retail.moons.pe",
+    "retailPE1": "retail.mymoons.pe ",
+    "globalRetail": "https://app.moons.ninja/app/centaui-retailapp/login-page",
+    
+    "userMoonsOs": "test.qa@mymoons.mx",
+    "passMoonsOs": "123qwe",
+
+    "title001": "Información general",
+
+    "centerCO": "Costanera",
+    "prodUserCO": "elianagardenayusteshidalgo@gmail.com",
+    "prodUserNameCO": "Eliana Gardenia Yustes Hidalgo",
+
+    "centerMX": "Polanco",
+    "prodUserMX": "raymundozamoraojr@gmail.com",
+    "prodUserNameMX": "Raymundo Zamudio Jr",
+
+    "centerPE": "Miraflores",
+    "prodUserPE": "cesarponcec@gmail.com",
+    "prodUserNamePE": "Cesar Ponce",
+
+    "centerCL": "Miraflores",
+    "prodUserCL": "contreraskatherine114@gmail.com",
+    "prodUserNameCL": "Katherine Contreras",
+
+    "titleImprimir": "Imprimir",
+    "titleRegresar": "Regresar"
+}

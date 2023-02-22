@@ -1,0 +1,43 @@
+{
+    "mxQuizDev" : "https://develop-moons-quiz-mx.web.app/",
+    "mxQuizProd": "https://quiz.mymoons.mx/",
+    "coQuizDev" : "https://develop-moons-quiz-co.web.app/",
+    "coQuizProd": "https://quiz.mymoons.co/",
+    "peQuizDev" : "https://develop-moons-quiz-pe.web.app/",
+    "peQuizProd": "https://quiz.mymoons.pe/",
+    "clQuizDev" : "https://develop-moons-quiz-cl.web.app/",
+    "clQuizProd": "https://quiz.mymoons.cl/",
+
+    "Edad1": "13 - menos",
+    "Edad2": "14 - 17",
+    "Edad3": "",
+    "Edad4": "",
+
+    "Img1": "#teethImage1",
+
+    "correctName": "MX Nombre Completo Espacio",
+    "WrongName": "34&/6",
+    "wrongNameError": "Ingresa un nombre válido",
+
+    "correctApellido": "Apellido Completo",
+    "WrongApellido": "34&/6",
+    "wrongApellidoError": "Ingresa un apellido válido",
+
+    "wrongCorreo": "Iwehrtt@",
+    "wrongCorreoError": "Ingresa un correo válido",
+
+    "wrongNumero": "235",
+    "wrongNumeroError": "El número debe ser de al menos 12 dígitos.",
+
+    "waDisclaimer": "Permito que Moons se comunique conmigo a través de WhatsApp al número",
+
+    "errorPregunta1": "Responde la 1ª pregunta",
+    "errorPregunta2": "Responde la 2ª pregunta",
+    "errorPregunta3_1": "Ingresa un nombre válido",
+    "errorPreguntaCo3_1": "Ingresa tu nombre.",
+    "errorPregunta3_2": "Ingresa tu apellido.",
+    "errorPregunta3_3": "Ingresa un correo válido.",
+    "errorPreguntaCo3_3": "Ingresa un correo válido",
+    "errorPregunta3_4": "Ingresa tu teléfono."
+    
+}
