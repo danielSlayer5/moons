@@ -25,6 +25,7 @@ describe('TestCases for the visit to the sites of all the countries', () => {
                         cy.log('Hola estoy en escritorio = ' + device)
                         webSitePo.getMenuIconForMobile().should('not.exist')
                         webSitePo.getMenuStore().should('be.visible')
+                        webSitePo.getMenuStore().click()
                     }
                     else
                     {
