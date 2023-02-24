@@ -1,10 +1,9 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import newThankYouPage from "../../PageObject/newThankYouPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import newCheckoutElements from "../../PageObject/checkoutV3PO"
+import newThankYouPage from "../../PageObject/newThankYouPagePO"
 
 
 describe ('Quiz CO', () => {
@@ -157,9 +156,6 @@ describe ('Quiz CO', () => {
         it('012 - Answer all the questions correctly ', () => {
             const poQuiz = new quizElements()
             const poAppointment = new appointmentElements()
-            const poNewCheckout = new newCheckoutElements()
-            const poMxOldThankYouPage = new mxOldThankYouPage()
-            const poNewThankYouPage = new newThankYouPage()
 
             cy.fixture('quizData').then(function(data){
                 this.data=data
@@ -175,12 +171,12 @@ describe ('Quiz CO', () => {
                 poAppointment.getAppointmentModal().should('be.visible')
             })//End fixture
         })// End of 009 - Answer only Q1, Q2, Q3 with incorrect Phone
-        it.only('013 - Create a new DEAL and pay the appointment', () => {
+        it('013 - Create a new DEAL and pay the appointment', () => {
             const fakeFirstName = faker.name.firstName()
             const fakeLastName = faker.name.lastName()
             const poQuiz = new quizElements()
             const poAppointment = new appointmentElements()
-            const poNewCheckout = new newCheckoutElements()
+            const pocheckoutV3 = new newCheckoutElements()
             const poNewThankYouPage = new newThankYouPage()
 
             cy.fixture('quizData').then(function(data){
@@ -208,7 +204,7 @@ describe ('Quiz CO', () => {
                 cy.addCorrectCardCo()
                 cy.addCorrectDirectionCo()
                 cy.wait(3500)
-                poNewCheckout.getButtonPagar().click()
+                pocheckoutV3.getButtonPagar().click()
                 cy.wait(7500)
                 Cypress.on('uncaught:exception', (err, runnable) => {
                     // returning false here prevents Cypress from

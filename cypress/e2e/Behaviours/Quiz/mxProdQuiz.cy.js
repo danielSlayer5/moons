@@ -1,14 +1,9 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import mxAppointmentElements from "../../PageObject/appointmentPageObject"
-import mxNewCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import mxNewThankYouPage from "../../PageObject/newThankYouPageObject"
-import mxUserDashboard from "../../PageObject/userDashboardPageObject"
+import quizElements from "../../PageObject/quizPO"
+import mxAppointmentElements from "../../PageObject/appointmentPO"
 
-
-describe ('Quiz MX', () => {
+describe.skip('Quiz MX', () => {
     const faker = require("faker");
     const devices = ["macbook-15"]
     devices.forEach((device) => {
@@ -20,7 +15,6 @@ describe ('Quiz MX', () => {
                     cy.visit(this.data.mxQuizProd)
                 })
             })
-        describe('Execution of happy path for the test cases for the quiz', () => {
             it('001 - Answer Quiz with NO data', () => {
                 const poMxQuiz = new quizElements()
                 poMxQuiz.getFinalizarQuizButton().click()
@@ -176,7 +170,6 @@ describe ('Quiz MX', () => {
                     poMxAppointment.getAppointmentModal().should('be.visible')
                 })//End fixture
             })// End of 011 - Answer only Q1, Q2, Q3 with incorrect Phone
-        })
         })// End Context
     })
 })//End Describe

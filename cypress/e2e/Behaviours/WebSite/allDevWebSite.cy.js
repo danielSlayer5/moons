@@ -1,5 +1,5 @@
 /// <reference types="Cypress"/>
-import webSiteElements from "../../PageObject/webSitePageObject"
+import webSiteElements from "../../PageObject/webSitePO"
 
 
 describe('TestCases for the visit to the sites of all the countries', () => {
@@ -38,25 +38,25 @@ describe('TestCases for the visit to the sites of all the countries', () => {
 
         describe('Visit the CO page for mobile and desktop', () => {
             it('open the page mx and close the modal', () => {
-                const webSitePo = new webSiteElements
+                const poWeb = new webSiteElements
                 cy.fixture('webSite').then(function(data){
                     this.data=data
                     cy.visit(this.data.urlDevCo)
                     cy.url().should('eq', this.data.urlDevCo)
-                    webSitePo.getMainModal().should('be.visible')
-                    webSitePo.getMainModalButtonSkip().click()
-                    webSitePo.getLiverpoolLogo().should('not.exist')
+                    poWeb.getMainModal().should('be.visible')
+                    poWeb.getMainModalButtonSkip().click()
+                    poWeb.getLiverpoolLogo().should('not.exist')
                     if(device == "macbook-16")
                     {
                         cy.log('Hola estoy en escritorio = ' + device)
-                        webSitePo.getMenuIconForMobile().should('not.exist')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('not.exist')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                     else
                     {
                         cy.log('Hola estoy en Mobile = ' + device)
-                        webSitePo.getMenuIconForMobile().should('be.visible')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('be.visible')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                 })
             })
@@ -64,25 +64,25 @@ describe('TestCases for the visit to the sites of all the countries', () => {
 
         describe('Visit the PE page for mobile and desktop', () => {
             it('open the page mx and close the modal', () => {
-                const webSitePo = new webSiteElements
+                const poWeb = new webSiteElements
                 cy.fixture('webSite').then(function(data){
                     this.data=data
                     cy.visit(this.data.urlDevPe)
                     cy.url().should('eq', this.data.urlDevPe)
-                    webSitePo.getMainModal().should('be.visible')
-                    webSitePo.getMainModalButtonSkip().click()
-                    webSitePo.getLiverpoolLogo().should('not.exist')
+                    poWeb.getMainModal().should('be.visible')
+                    poWeb.getMainModalButtonSkip().click()
+                    poWeb.getLiverpoolLogo().should('not.exist')
                     if(device == "macbook-16")
                     {
                         cy.log('Hola estoy en escritorio = ' + device)
-                        webSitePo.getMenuIconForMobile().should('not.exist')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('not.exist')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                     else
                     {
                         cy.log('Hola estoy en Mobile = ' + device)
-                        webSitePo.getMenuIconForMobile().should('be.visible')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('be.visible')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                 })
             })
@@ -90,25 +90,25 @@ describe('TestCases for the visit to the sites of all the countries', () => {
 
         describe('Visit the CL page for mobile and desktop', () => {
             it('open the page mx and close the modal', () => {
-                const webSitePo = new webSiteElements
+                const poWeb = new webSiteElements
                 cy.fixture('webSite').then(function(data){
                     this.data=data
                     cy.visit(this.data.urlDevCl)
                     cy.url().should('eq', this.data.urlDevCl)
-                    webSitePo.getMainModal().should('be.visible')
-                    webSitePo.getMainModalButtonSkip().click()
-                    webSitePo.getLiverpoolLogo().should('not.exist')
+                    poWeb.getMainModal().should('be.visible')
+                    poWeb.getMainModalButtonSkip().click()
+                    poWeb.getLiverpoolLogo().should('not.exist')
                     if(device == "macbook-16")
                     {
                         cy.log('Hola estoy en escritorio = ' + device)
-                        webSitePo.getMenuIconForMobile().should('not.exist')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('not.exist')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                     else
                     {
                         cy.log('Hola estoy en Mobile = ' + device)
-                        webSitePo.getMenuIconForMobile().should('be.visible')
-                        webSitePo.getMenuStore().should('not.exist')
+                        poWeb.getMenuIconForMobile().should('be.visible')
+                        poWeb.getMenuStore().should('not.exist')
                     }
                 })
             })

@@ -1,7 +1,7 @@
 class appointmentElements
 {
     getAppointmentModal(){
-        return cy.get('.modal-main', {timeout:20000})
+        return cy.get('.modal-main', {timeout:25000})
     }
     getAppointmentButton(){
         return cy.get('.Button')

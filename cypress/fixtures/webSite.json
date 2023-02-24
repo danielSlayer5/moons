@@ -5,8 +5,8 @@
     "urlProdCo": "https://mymoons.co/",
     "urlProdCl": "https://mymoons.cl/",
 
-    "urlDevMx": "",
-    "urlDevPe": "",
-    "urlDevCo": "",
-    "urlDevCl": ""
+    "urlDevMx": "https://mx.moons.rocks/",
+    "urlDevPe": "https://pe.moons.rocks/",
+    "urlDevCo": "https://co.moons.rocks/",
+    "urlDevCl": "https://cl.moons.rocks/"
 }

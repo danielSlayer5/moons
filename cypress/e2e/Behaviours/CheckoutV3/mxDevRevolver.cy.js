@@ -1,9 +1,9 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import mxAppointmentElements from "../../PageObject/appointmentPageObject"
-import mxNewCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxNewThankYouPage from "../../PageObject/newThankYouPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import checkoutElements from "../../PageObject/checkoutV3PO"
+import newThankYouPage from "../../PageObject/newThankYouPagePO"
 
 
 describe ('SuitCase: MX - DEV - REVOLVER CheckoutV3', () => {
@@ -12,8 +12,9 @@ describe ('SuitCase: MX - DEV - REVOLVER CheckoutV3', () => {
     const totalMercado=1
     const totalStripe=2
     const totalConekta=1
+
     devices.forEach((device) => {
-        context ('Execution of '+ (totalMercado+totalStripe+totalConekta)+ ' test cases paying with the appointment with the REVOLVER', () => {
+        context ('Execution of '+ (totalMercado+totalStripe+totalConekta)+ ' test cases paying with the REVOLVER', () => {
             beforeEach(function(){
                 cy.viewport(device)
                 cy.fixture('quizData').then(function(data){
@@ -25,36 +26,36 @@ describe ('SuitCase: MX - DEV - REVOLVER CheckoutV3', () => {
                 it('DEAL: ' + (i+1) + ' of: '+ totalMercado + ' for MERCADO PAGO', () => {
                         const fakeFirstName = faker.name.firstName()
                         const fakeLastName = faker.name.lastName()
-                        const poMxQuiz = new quizElements()
-                        const poMxAppointment = new mxAppointmentElements()
-                        const poMxNewCheckout = new mxNewCheckoutElements()
-                        const poMxNewThankYouPage = new mxNewThankYouPage()
+                        const poQuiz = new quizElements()
+                        const poAppointment = new appointmentElements()
+                        const poCheckoutV3 = new checkoutElements()
+                        const poThankYouPage = new newThankYouPage()
             
                         cy.fixture('quizData').then(function(data){
                             this.data=data
-                            poMxQuiz.getSeleccionaEdad().select(this.data.Edad2)
+                            poQuiz.getSeleccionaEdad().select(this.data.Edad2)
                             cy.get(this.data.Img1).click()
-                            poMxQuiz.getCampoNombre().type(fakeFirstName)
+                            poQuiz.getCampoNombre().type(fakeFirstName)
                             cy.log(fakeFirstName)
-                            poMxQuiz.getCampoApellido().type(fakeLastName)
+                            poQuiz.getCampoApellido().type(fakeLastName)
                             cy.log(fakeLastName)
                             cy.addFakeMailMx()
                             cy.addCorrectNumber()
-                            poMxQuiz.getCheckboxWa().check()
-                            poMxQuiz.getFinalizarQuizButton().click()
-                            poMxAppointment.getAppointmentModal().should('be.visible')
-                            poMxAppointment.getAppointmentButton().click()
-                            poMxAppointment.getCenterSatelite().click()
-                            poMxAppointment.getCenterHour().click()
-                            poMxAppointment.getPagarCita().click()
+                            poQuiz.getCheckboxWa().check()
+                            poQuiz.getFinalizarQuizButton().click()
+                            poAppointment.getAppointmentModal().should('be.visible')
+                            poAppointment.getAppointmentButton().click()
+                            poAppointment.getCenterSatelite().click()
+                            poAppointment.getCenterHour().click()
+                            poAppointment.getPagarCita().click()
                             cy.addCorrectCard()
-                            poMxNewCheckout.getButtonPagar().click()
+                            poCheckoutV3.getButtonPagar().click()
                             Cypress.on('uncaught:exception', (err, runnable) => {
                                 // returning false here prevents Cypress from
                                 // failing the test
                                 return false
                             })
-                            poMxNewThankYouPage.getNButtonIraMiCuenta().should('be.visible')
+                            poThankYouPage.getNButtonIraMiCuenta().should('be.visible')
                         })//End fixture
                 })// End of MERCADO PAGO
             }
@@ -62,36 +63,36 @@ describe ('SuitCase: MX - DEV - REVOLVER CheckoutV3', () => {
                 it('DEAL: ' + (i+1) + ' of: '+ totalStripe + ' for STRIPE', () => {
                         const fakeFirstName = faker.name.firstName()
                         const fakeLastName = faker.name.lastName()
-                        const poMxQuiz = new quizElements()
-                        const poMxAppointment = new mxAppointmentElements()
-                        const poMxNewCheckout = new mxNewCheckoutElements()
-                        const poMxNewThankYouPage = new mxNewThankYouPage()
+                        const poQuiz = new quizElements()
+                        const poAppointment = new appointmentElements()
+                        const poCheckoutV3 = new checkoutElements()
+                        const poThankYouPage = new newThankYouPage()
             
                         cy.fixture('quizData').then(function(data){
                             this.data=data
-                            poMxQuiz.getSeleccionaEdad().select(this.data.Edad2)
+                            poQuiz.getSeleccionaEdad().select(this.data.Edad2)
                             cy.get(this.data.Img1).click()
-                            poMxQuiz.getCampoNombre().type(fakeFirstName)
+                            poQuiz.getCampoNombre().type(fakeFirstName)
                             cy.log(fakeFirstName)
-                            poMxQuiz.getCampoApellido().type(fakeLastName)
+                            poQuiz.getCampoApellido().type(fakeLastName)
                             cy.log(fakeLastName)
                             cy.addFakeMailMx()
                             cy.addCorrectNumber()
-                            poMxQuiz.getCheckboxWa().check()
-                            poMxQuiz.getFinalizarQuizButton().click()
-                            poMxAppointment.getAppointmentModal().should('be.visible')
-                            poMxAppointment.getAppointmentButton().click()
-                            poMxAppointment.getCenterSatelite().click()
-                            poMxAppointment.getCenterHour().click()
-                            poMxAppointment.getPagarCita().click()
+                            poQuiz.getCheckboxWa().check()
+                            poQuiz.getFinalizarQuizButton().click()
+                            poAppointment.getAppointmentModal().should('be.visible')
+                            poAppointment.getAppointmentButton().click()
+                            poAppointment.getCenterSatelite().click()
+                            poAppointment.getCenterHour().click()
+                            poAppointment.getPagarCita().click()
                             cy.addCorrectCardStripe()
-                            poMxNewCheckout.getButtonPagar().click()
+                            poCheckoutV3.getButtonPagar().click()
                             Cypress.on('uncaught:exception', (err, runnable) => {
                                 // returning false here prevents Cypress from
                                 // failing the test
                                 return false
                             })
-                            poMxNewThankYouPage.getNButtonIraMiCuenta().should('be.visible')
+                            poThankYouPage.getNButtonIraMiCuenta().should('be.visible')
                         })//End fixture
                 })// End of STRIPE
             }
@@ -99,36 +100,36 @@ describe ('SuitCase: MX - DEV - REVOLVER CheckoutV3', () => {
                 it('DEAL: ' + (i+1) + ' of: '+ totalConekta + ' for CONEKTA', () => {
                         const fakeFirstName = faker.name.firstName()
                         const fakeLastName = faker.name.lastName()
-                        const poMxQuiz = new quizElements()
-                        const poMxAppointment = new mxAppointmentElements()
-                        const poMxNewCheckout = new mxNewCheckoutElements()
-                        const poMxNewThankYouPage = new mxNewThankYouPage()
+                        const poQuiz = new quizElements()
+                        const poAppointment = new appointmentElements()
+                        const poCheckoutV3 = new checkoutElements()
+                        const poThankYouPage = new newThankYouPage()
             
                         cy.fixture('quizData').then(function(data){
                             this.data=data
-                            poMxQuiz.getSeleccionaEdad().select(this.data.Edad2)
+                            poQuiz.getSeleccionaEdad().select(this.data.Edad2)
                             cy.get(this.data.Img1).click()
-                            poMxQuiz.getCampoNombre().type(fakeFirstName)
+                            poQuiz.getCampoNombre().type(fakeFirstName)
                             cy.log(fakeFirstName)
-                            poMxQuiz.getCampoApellido().type(fakeLastName)
+                            poQuiz.getCampoApellido().type(fakeLastName)
                             cy.log(fakeLastName)
                             cy.addFakeMailMx()
                             cy.addCorrectNumber()
-                            poMxQuiz.getCheckboxWa().check()
-                            poMxQuiz.getFinalizarQuizButton().click()
-                            poMxAppointment.getAppointmentModal().should('be.visible')
-                            poMxAppointment.getAppointmentButton().click()
-                            poMxAppointment.getCenterSatelite().click()
-                            poMxAppointment.getCenterHour().click()
-                            poMxAppointment.getPagarCita().click()
+                            poQuiz.getCheckboxWa().check()
+                            poQuiz.getFinalizarQuizButton().click()
+                            poAppointment.getAppointmentModal().should('be.visible')
+                            poAppointment.getAppointmentButton().click()
+                            poAppointment.getCenterSatelite().click()
+                            poAppointment.getCenterHour().click()
+                            poAppointment.getPagarCita().click()
                             cy.addCorrectCardConekta()
-                            poMxNewCheckout.getButtonPagar().click()
+                            poCheckoutV3.getButtonPagar().click()
                             Cypress.on('uncaught:exception', (err, runnable) => {
                                 // returning false here prevents Cypress from
                                 // failing the test
                                 return false
                             })
-                            poMxNewThankYouPage.getNButtonIraMiCuenta().should('be.visible')
+                            poThankYouPage.getNButtonIraMiCuenta().should('be.visible')
                         })//End fixture
                 })// End of CONEKTA
             }

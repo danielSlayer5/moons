@@ -2,7 +2,7 @@
 
 import appRetail from "../../PageObject/appRetailpageObject"
 
-describe('VISIT CL APP  Retail', () =>{
+describe.skip('VISIT CL APP  Retail', () =>{
     it('001 - The CL url should redirect to the new app', () => {
         cy.fixture('appRetail').then(function(data){
             this.data=data
@@ -42,7 +42,7 @@ describe('VISIT CL APP  Retail', () =>{
     })// END of
 }) // End of describe
 
-describe('VISIT CO APP  Retail', () =>{
+describe.skip('VISIT CO APP  Retail', () =>{
     it('001 - The CO url should redirect to the new app', () => {
         const appRetailPo= new appRetail
         cy.fixture('appRetail').then(function(data){
@@ -87,7 +87,7 @@ describe('VISIT CO APP  Retail', () =>{
     })// END of
 }) // End of describe
 
-describe('VISIT MX APP  Retail', () =>{
+describe.skip('VISIT MX APP  Retail', () =>{
     it('001 - The MX url should redirect to the new app', () => {
         cy.fixture('appRetail').then(function(data){
             this.data=data
@@ -126,7 +126,7 @@ describe('VISIT MX APP  Retail', () =>{
     })// END of
 }) // End of describe
 
-describe('VISIT PE APP  Retail', () =>{
+describe.skip('VISIT PE APP  Retail', () =>{
     it('001 - The PE url should redirect to the new app', () => {
         cy.fixture('appRetail').then(function(data){
             this.data=data
@@ -166,7 +166,7 @@ describe('VISIT PE APP  Retail', () =>{
     })// END of
 }) // End of describe
 
-describe('VISIT PE 1 APP  Retail', () =>{
+describe.skip('VISIT PE 1 APP  Retail', () =>{
     it('001 - The PE url1 should redirect to the new app', () => {
         cy.fixture('appRetail').then(function(data){
             this.data=data

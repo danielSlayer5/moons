@@ -18,19 +18,19 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-import mxQuizElements from "../e2e/PageObject/quizPageObject"
-import mxNewCheckoutElements from "../e2e/PageObject/newCheckoutPageObject"
-import cartConfigurator from "../e2e/PageObject/cartConfigurator"
+import quizElements from "../e2e/PageObject/quizPO"
+import checkoutElements from "../e2e/PageObject/checkoutV3PO"
+import omsElements from "../e2e/PageObject/omsPO"
 
 
 Cypress.Commands.add('addFakeMailMx', () =>{
     const uuid = () => Cypress._.random(0, 1e4);
     const mail = uuid();
     const emailFake = `userTest.${mail}@cypress.mx`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
+
     cy.log(emailFake)
-    poMxQuiz.getCampoCorreo().type(emailFake)
+    poQuiz.getCampoCorreo().type(emailFake)
 })
 
 Cypress.Commands.add('addFakeMailCo', () =>{
@@ -38,157 +38,155 @@ Cypress.Commands.add('addFakeMailCo', () =>{
     const mail = uuid();
     const emailFake = `userTest.${mail}@cypress.co`;
     
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
     cy.log(emailFake)
-    poMxQuiz.getCampoCorreo().type(emailFake)
+    poQuiz.getCampoCorreo().type(emailFake)
 })
 
 Cypress.Commands.add('addFakeMailPe', () =>{
     const uuid = () => Cypress._.random(0, 1e4);
     const mail = uuid();
     const emailFake = `userTest.${mail}@cypress.pe`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
+
     cy.log(emailFake)
-    poMxQuiz.getCampoCorreo().type(emailFake)
+    poQuiz.getCampoCorreo().type(emailFake)
 })
 Cypress.Commands.add('addFakeNumber', () =>{
     const uuid = () => Cypress._.random(0, 1e10);
     const phone = uuid();
     const numberFake = `${phone}`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
 
     cy.log(numberFake)
-    poMxQuiz.getCampoWhatsApp().type(numberFake)
+    poQuiz.getCampoWhatsApp().type(numberFake)
 })
 
 Cypress.Commands.add('addCorrectNumber', () =>{
     const uuid = () => Cypress._.random(0, 1e11);
     const phone = uuid();
     const numberCorrect = `${phone}`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
+
     cy.log(numberCorrect)
-    poMxQuiz.getCampoWhatsApp().type(numberCorrect)
+    poQuiz.getCampoWhatsApp().type(numberCorrect)
 })
 Cypress.Commands.add('addCorrectNumberPe', () =>{
     const uuid = () => Cypress._.random(0, 1e11);
     const phone = uuid();
     const numberCorrect = `${phone}`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
+
     cy.log(numberCorrect)
-    poMxQuiz.getCampoWhatsAppPe().type(numberCorrect)
+    poQuiz.getCampoWhatsAppPe().type(numberCorrect)
 })
 Cypress.Commands.add('addCorrectNumberCo', () =>{
     const uuid = () => Cypress._.random(0, 1e10);
     const phone = uuid();
     const numberCorrect = `${phone}`;
-    
-    const poMxQuiz = new mxQuizElements()
+    const poQuiz = new quizElements()
+
     cy.log(numberCorrect)
     cy.wait(1000)
-    poMxQuiz.getCampoWhatsApp().type(numberCorrect)
+    poQuiz.getCampoWhatsApp().type(numberCorrect)
     cy.wait(1000)
 })
 
 Cypress.Commands.add('addCorrectCard', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
+
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
         cy.wait(3500)
-        poMxNewCheckout.getFieldName().type(this.data.nameComplete)
+        poCheckoutV3.getFieldName().type(this.data.nameComplete)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCardNumber().type(this.data.creditCard)
+        poCheckoutV3.getFieldCardNumber().type(this.data.creditCard)
         cy.wait(1500)
-        poMxNewCheckout.getFieldMonthYear().type(this.data.monthYear)
+        poCheckoutV3.getFieldMonthYear().type(this.data.monthYear)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCvc().type(this.data.cvc)
+        poCheckoutV3.getFieldCvc().type(this.data.cvc)
     })
 })
 
 Cypress.Commands.add('addCorrectCardStripe', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
         cy.wait(3500)
-        poMxNewCheckout.getFieldName().type(this.data.nameComplete)
+        poCheckoutV3.getFieldName().type(this.data.nameComplete)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCardNumber().type(this.data.creditCardStripe)
+        poCheckoutV3.getFieldCardNumber().type(this.data.creditCardStripe)
         cy.wait(1500)
-        poMxNewCheckout.getFieldMonthYear().type(this.data.monthYear)
+        poCheckoutV3.getFieldMonthYear().type(this.data.monthYear)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCvc().type(this.data.cvc)
+        poCheckoutV3.getFieldCvc().type(this.data.cvc)
     })
 })
 
 Cypress.Commands.add('addCorrectCardConekta', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
         cy.wait(3500)
-        poMxNewCheckout.getFieldName().type(this.data.nameComplete)
+        poCheckoutV3.getFieldName().type(this.data.nameComplete)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCardNumber().type(this.data.creditCardConekta)
+        poCheckoutV3.getFieldCardNumber().type(this.data.creditCardConekta)
         cy.wait(1500)
-        poMxNewCheckout.getFieldMonthYear().type(this.data.monthYear)
+        poCheckoutV3.getFieldMonthYear().type(this.data.monthYear)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCvc().type(this.data.cvc)
+        poCheckoutV3.getFieldCvc().type(this.data.cvc)
     })
 })
 
 Cypress.Commands.add('addCorrectCardCo', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
-        poMxNewCheckout.getSelectorBank().click()
-        poMxNewCheckout.getFieldType().click()
-        poMxNewCheckout.getFieldNumber().type(this.data.coCedulaNumb)
+        poCheckoutV3.getSelectorBank().click()
+        poCheckoutV3.getFieldType().click()
+        poCheckoutV3.getFieldNumber().type(this.data.coCedulaNumb)
         cy.wait(3500)
-        poMxNewCheckout.getFieldName().type(this.data.nameComplete)
+        poCheckoutV3.getFieldName().type(this.data.nameComplete)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCardNumber().type(this.data.creditCard)
+        poCheckoutV3.getFieldCardNumber().type(this.data.creditCard)
         cy.wait(1500)
-        poMxNewCheckout.getFieldMonthYear().type(this.data.monthYear)
+        poCheckoutV3.getFieldMonthYear().type(this.data.monthYear)
         cy.wait(1500)
-        poMxNewCheckout.getFieldCvc().type(this.data.cvc)
+        poCheckoutV3.getFieldCvc().type(this.data.cvc)
     })
 })
 
 Cypress.Commands.add('addCorrectPseData', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
-        poMxNewCheckout.getFieldBank().click()
-        poMxNewCheckout.getFieldType().click()
-        poMxNewCheckout.getFieldClientType().click()
-        poMxNewCheckout.getFieldClientOption().click()
-        poMxNewCheckout.getIdType().click()
-        poMxNewCheckout.getIdOption().click()
-        poMxNewCheckout.getFieldDocumentNumber().type(this.data.coCedulaNumb)
+        poCheckoutV3.getFieldBank().click()
+        poCheckoutV3.getFieldType().click()
+        poCheckoutV3.getFieldClientType().click()
+        poCheckoutV3.getFieldClientOption().click()
+        poCheckoutV3.getIdType().click()
+        poCheckoutV3.getIdOption().click()
+        poCheckoutV3.getFieldDocumentNumber().type(this.data.coCedulaNumb)
     })
 })
 
 Cypress.Commands.add('addCorrectDirectionCo', () =>{
-    const poMxNewCheckout = new mxNewCheckoutElements()
+    const poCheckoutV3 = new checkoutElements()
     cy.fixture('creditCardsData').then(function(data){
         this.data=data
-        poMxNewCheckout.getButtonAddDirection().click()
-
-        poMxNewCheckout.getStreet().type(this.data.coStreet)
-        poMxNewCheckout.getAddressNumber().type(this.data.coAddressNumber)
-        poMxNewCheckout.getState().type(this.data.coState)
-        poMxNewCheckout.getNeighborhood().type(this.data.coNeighborhood)
-        poMxNewCheckout.getDepartment().type(this.data.coDepartment)
-
+        poCheckoutV3.getButtonAddDirection().click()
+        poCheckoutV3.getStreet().type(this.data.coStreet)
+        poCheckoutV3.getAddressNumber().type(this.data.coAddressNumber)
+        poCheckoutV3.getState().type(this.data.coState)
+        poCheckoutV3.getNeighborhood().type(this.data.coNeighborhood)
+        poCheckoutV3.getDepartment().type(this.data.coDepartment)
         cy.wait(1200)
-        poMxNewCheckout.getButtonSaveAddress().click()
+        poCheckoutV3.getButtonSaveAddress().click()
     })
 })
 
 Cypress.Commands.add('loginIntoCartConfigurator', () =>{
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     Cypress.on('uncaught:exception', (err, runnable) => {
         // returning false here prevents Cypress from
         // failing the test
@@ -196,211 +194,211 @@ Cypress.Commands.add('loginIntoCartConfigurator', () =>{
     })
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
-        poCartConfigurator.getEmail().should('be.visible').type(this.data.userMailDev)
-        poCartConfigurator.getPassword().should('be.visible').type(this.data.userPassDev)
-        poCartConfigurator.getLogin().should('be.enabled').click()
+        poOms.getEmail().should('be.visible').type(this.data.userMailDev)
+        poOms.getPassword().should('be.visible').type(this.data.userPassDev)
+        poOms.getLogin().should('be.enabled').click()
         cy.wait(2300)
     })
 })
 
 Cypress.Commands.add('cartAppointment', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.wait(3500)
-    poCartConfigurator.getCitaButton().click({ force: true })
+    poOms.getCitaButton().click({ force: true })
     cy.wait(1150)
 })
 Cypress.Commands.add('cartAppointment', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poCartConfigurator = new omsElements()
     cy.wait(3500)
     poCartConfigurator.getCitaButton().click({ force: true })
     cy.wait(1150)
 })
 Cypress.Commands.add('globalSearchUserMx', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
-        poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-        poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.testAppointment)
-        poCartConfigurator.getSearchButton().click()
+        poOms.getMainContainer().should('contain.text', this.data.titleUno)
+        poOms.getGloblalSearch().should('be.visible').type(this.data.testAppointment)
+        poOms.getSearchButton().click()
         cy.wait(1500)
-        poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-        poCartConfigurator.getResult().should('be.visible')
+        poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+        poOms.getResult().should('be.visible')
         cy.wait(1750)
-        poCartConfigurator.getButtonResult().click()
+        poOms.getButtonResult().click()
     })
 })
 Cypress.Commands.add('globalSearchUserDeleteCartsMx', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
-        poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-        poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.userDeleteCarts)
-        poCartConfigurator.getSearchButton({timeout:5000}).click()
+        poOms.getMainContainer().should('contain.text', this.data.titleUno)
+        poOms.getGloblalSearch().should('be.visible').type(this.data.userDeleteCarts)
+        poOms.getSearchButton({timeout:5000}).click()
         cy.wait(1500)
-        poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-        poCartConfigurator.getResult().should('be.visible')
+        poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+        poOms.getResult().should('be.visible')
         cy.wait(1750)
-        poCartConfigurator.getButtonResult().click()
+        poOms.getButtonResult().click()
         cy.wait(2100)
     })
 })
 Cypress.Commands.add('globalSearchTestUser', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
-        poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-        poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.user2)
-        poCartConfigurator.getSearchButton({timeout:5000}).click()
+        poOms.getMainContainer().should('contain.text', this.data.titleUno)
+        poOms.getGloblalSearch().should('be.visible').type(this.data.user2)
+        poOms.getSearchButton({timeout:5000}).click()
         cy.wait(1500)
-        poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-        poCartConfigurator.getResult().should('be.visible')
+        poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+        poOms.getResult().should('be.visible')
         cy.wait(1750)
-        poCartConfigurator.getButtonResult().click()
+        poOms.getButtonResult().click()
         cy.wait(2100)
     })
 })
 Cypress.Commands.add('createNewCart', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getMainUserContainer().should('be.visible')
-    poCartConfigurator.getButtonCreateCart().should('be.visible').click()
+    const poOms = new omsElements()
+    poOms.getMainUserContainer().should('be.visible')
+    poOms.getButtonCreateCart().should('be.visible').click()
     //cy.wait(20100)
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
         //poCartConfigurator.getListOfProducts().should('contain.text', this.data.listProduct1)
-        poCartConfigurator.getListOfProducts()
-        poCartConfigurator.getListOfProducts().should('contain.text', this.data.listProduct2)
-        poCartConfigurator.getListOfProducts().should('contain.text', this.data.listProduct3)
-        poCartConfigurator.getListOfProducts().should('contain.text', this.data.listProduct4)
-        poCartConfigurator.getListOfProducts().should('contain.text', this.data.listProduct5)
+        poOms.getListOfProducts()
+        poOms.getListOfProducts().should('contain.text', this.data.listProduct2)
+        poOms.getListOfProducts().should('contain.text', this.data.listProduct3)
+        poOms.getListOfProducts().should('contain.text', this.data.listProduct4)
+        poOms.getListOfProducts().should('contain.text', this.data.listProduct5)
     })
 })
 Cypress.Commands.add('appointmentAndProduct', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.wait(3500)
     //poCartConfigurator.getMainUserContainer().should('be.visible')
     //poCartConfigurator.getButtonCreateCart().should('be.visible').click()
-    poCartConfigurator.getCitaButton().click({ force: true })
+    poOms.getCitaButton().click({ force: true })
     cy.wait(1630)
-    poCartConfigurator.getProductsSection().click()
-    poCartConfigurator.getPastaDentalButton().should('be.visible').click()
+    poOms.getProductsSection().click()
+    poOms.getPastaDentalButton().should('be.visible').click()
     cy.wait(1500)
 })
 Cypress.Commands.add('alineadoresA_1', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getAlineadoresButton().click({ force: true })
+    const poOms = new omsElements()
+    poOms.getAlineadoresButton().click({ force: true })
     cy.wait(1300)
-    poCartConfigurator.getChoosePayment().click()
+    poOms.getChoosePayment().click()
     cy.wait(300)
-    poCartConfigurator.getApartadoButton().click()
+    poOms.getApartadoButton().click()
     cy.wait(400)
-    poCartConfigurator.getAmountButton1().click()
+    poOms.getAmountButton1().click()
     cy.wait(500)
-    poCartConfigurator.getAddToCart().click()
+    poOms.getAddToCart().click()
 })
 Cypress.Commands.add('alineadoresA_2', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getAlineadoresButton().click({ force: true })
+    const poOms = new omsElements()
+    poOms.getAlineadoresButton().click({ force: true })
     cy.wait(1300)
-    poCartConfigurator.getChoosePayment().click()
+    poOms.getChoosePayment().click()
     cy.wait(300)
-    poCartConfigurator.getApartadoButton().click()
+    poOms.getApartadoButton().click()
     cy.wait(400)
-    poCartConfigurator.getAmountButton3().click()
+    poOms.getAmountButton3().click()
     cy.wait(500)
-    poCartConfigurator.getAddToCart().click()
+    poOms.getAddToCart().click()
 })
 Cypress.Commands.add('alineadoresPC_1', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getAlineadoresButton().click({ force: true })
+    const poOms = new omsElements()
+    poOms.getAlineadoresButton().click({ force: true })
     cy.wait(1300)
-    poCartConfigurator.getChoosePayment().click()
+    poOms.getChoosePayment().click()
     cy.wait(300)
-    poCartConfigurator.getPagoComplementarioButton().click()
+    poOms.getPagoComplementarioButton().click()
     cy.wait(400)
-    poCartConfigurator.getAmountButton1().click()
+    poOms.getAmountButton1().click()
     cy.wait(500)
-    poCartConfigurator.getAddToCart().click()
+    poOms.getAddToCart().click()
 })
 Cypress.Commands.add('alineadoresPC_2', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getAlineadoresButton().click({ force: true })
+    const poOms = new omsElements()
+    poOms.getAlineadoresButton().click({ force: true })
     cy.wait(1300)
-    poCartConfigurator.getChoosePayment().click()
+    poOms.getChoosePayment().click()
     cy.wait(300)
-    poCartConfigurator.getPagoComplementarioButton().click()
+    poOms.getPagoComplementarioButton().click()
     cy.wait(400)
-    poCartConfigurator.getAmountButton3().click()
+    poOms.getAmountButton3().click()
     cy.wait(500)
-    poCartConfigurator.getAddToCart().click()
+    poOms.getAddToCart().click()
 })
 Cypress.Commands.add('alineadoresLiquidation', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getAlineadoresButton().click({ force: true })
+    const poOms = new omsElements()
+    poOms.getAlineadoresButton().click({ force: true })
     cy.wait(1300)
-    poCartConfigurator.getChoosePayment().click()
+    poOms.getChoosePayment().click()
     cy.wait(300)
-    poCartConfigurator.getLiquidacionButton().click()
+    poOms.getLiquidacionButton().click()
     cy.wait(500)
-    poCartConfigurator.getAddToCart().click()
+    poOms.getAddToCart().click()
 })
 Cypress.Commands.add('onlyProducts', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.wait(3500)
-    poCartConfigurator.getProductsSection().click()
+    poOms.getProductsSection().click()
     cy.wait(2000)
-    poCartConfigurator.getPastaDentalButton().should('be.visible').click()
+    poOms.getPastaDentalButton().should('be.visible').click()
     cy.wait(3500)
-    poCartConfigurator.getEnjuagueBucal().should('be.visible').click()
+    poOms.getEnjuagueBucal().should('be.visible').click()
     cy.wait(3600)
 
 })
 Cypress.Commands.add('createPaymentLink', () => {
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getViewCart().click()
+    const poOms = new omsElements()
+    poOms.getViewCart().click()
     cy.wait(900)
-    poCartConfigurator.getButtonConfirmCart().click()
-    poCartConfigurator.getButtonRealizarPago().click()
-    poCartConfigurator.getButtonLinkPago().click()
+    poOms.getButtonConfirmCart().click()
+    poOms.getButtonRealizarPago().click()
+    poOms.getButtonLinkPago().click()
     cy.wait(2200)
-    poCartConfigurator.getModalMainContainer().should('be.visible')
+    poOms.getModalMainContainer().should('be.visible')
 })
 Cypress.Commands.add('deleteCart', () =>{
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.wait(2310)
-    poCartConfigurator.getCloseButtonModalContainer().click()
-    poCartConfigurator.getButtonVolverAlInicio().click()
+    poOms.getCloseButtonModalContainer().click()
+    poOms.getButtonVolverAlInicio().click()
     cy.wait(3400)
-    poCartConfigurator.getMainSectionCart().should('be.visible')
+    poOms.getMainSectionCart().should('be.visible')
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
-        poCartConfigurator.getFirstSection().should('be.visible').should('contain.text', this.data.titleFirstSection)
+        poOms.getFirstSection().should('be.visible').should('contain.text', this.data.titleFirstSection)
     })
     cy.wait(2300)
-    poCartConfigurator.getButtonEliminar().click()
+    poOms.getButtonEliminar().click()
     cy.wait(1201)
-    poCartConfigurator.getButtonForDeleteCart().click()
+    poOms.getButtonForDeleteCart().click()
     cy.get('.MuiTabPanel-root > :nth-child(1)').should('contain.text', 'Aún no tienes carritos activos')
     cy.wait(1101)
     cy.get('#createCartButton').should('be.visible')
 })
 Cypress.Commands.add('globalSearchPayAppointment', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
-        poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-        poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.paymentCashTestUserMx01)
-        poCartConfigurator.getSearchButton({timeout:5000}).click()
+        poOms.getMainContainer().should('contain.text', this.data.titleUno)
+        poOms.getGloblalSearch().should('be.visible').type(this.data.paymentCashTestUserMx01)
+        poOms.getSearchButton({timeout:5000}).click()
         cy.wait(1500)
-        poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-        poCartConfigurator.getResult().should('be.visible')
+        poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+        poOms.getResult().should('be.visible')
         cy.wait(1750)
-        poCartConfigurator.getButtonResult().click()
+        poOms.getButtonResult().click()
         cy.wait(2100)
     })
 })
 Cypress.Commands.add('createCartCash', () =>{
-    const poCartConfigurator = new cartConfigurator()
-    poCartConfigurator.getViewCart().click()
+    const poOms = new omsElements()
+    poOms.getViewCart().click()
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
         //poCartConfigurator.getPriceCartDetail().should('have.text', this.data.AppointmentPrice)
-        poCartConfigurator.getPriceCartDetail().each(($e1, index, $list) => {
+        poOms.getPriceCartDetail().each(($e1, index, $list) => {
             const v1= $e1.text()
             //const v3= $list.text()
             if(index == 9)
@@ -413,7 +411,7 @@ Cypress.Commands.add('createCartCash', () =>{
                 // cy.log('-------------------------------------')
             }
         })
-        poCartConfigurator.getButtonConfirmCart().click()
+        poOms.getButtonConfirmCart().click()
     })
     
     // poCartConfigurator.getButtonConfirmCart().click()
@@ -430,30 +428,30 @@ Cypress.Commands.add('createCartCash', () =>{
     // poCartConfigurator.getButtonCreateCart().should('be.visible')
 })
 Cypress.Commands.add('PayCartWithCash', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const v = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
-        poCartConfigurator.getButtonRealizarPago().click()
-        poCartConfigurator.getButtonEfectivo().click()
-        poCartConfigurator.getModalMainContainerEfectivo().should('be.visible')
-        poCartConfigurator.getButtonConfirmPayment().click()
+        poOms.getButtonRealizarPago().click()
+        poOms.getButtonEfectivo().click()
+        poOms.getModalMainContainerEfectivo().should('be.visible')
+        poOms.getButtonConfirmPayment().click()
         cy.wait(3000)
-        poCartConfigurator.getAmountToDeliver().should('be.visible').click()
-        poCartConfigurator.getSelectOneToDeliver().click()
-        poCartConfigurator.getConfirmButton().should('be.enabled').click()
-        poCartConfigurator.getButtonVolverAlInicio().should('be.visible').click({force: true})
-        poCartConfigurator.getMainContainerNoCarts().should('be.visible').and('contain.text', this.data.titleTres)
+        poOms.getAmountToDeliver().should('be.visible').click()
+        poOms.getSelectOneToDeliver().click()
+        poOms.getConfirmButton().should('be.enabled').click()
+        poOms.getButtonVolverAlInicio().should('be.visible').click({force: true})
+        poOms.getMainContainerNoCarts().should('be.visible').and('contain.text', this.data.titleTres)
     })
 })
 Cypress.Commands.add('ValidatePaymentWitCash', () => {
-    const poCartConfigurator = new cartConfigurator()
+    const poOms = new omsElements()
     cy.fixture('cartConfiguratorData').then(function(data){
         this.data=data
-        poCartConfigurator.getSectionPagados().click()
-        poCartConfigurator.getPaidCartCard().should('be.visible')
-        poCartConfigurator.getButtonViewDetails().should('be.visible').click()
-        poCartConfigurator.getDetailsCart().should('be.visible')
-        poCartConfigurator.getPriceCartDetail().each(($e1, index, $list) => {
+        poOms.getSectionPagados().click()
+        poOms.getPaidCartCard().should('be.visible')
+        poOms.getButtonViewDetails().should('be.visible').click()
+        poOms.getDetailsCart().should('be.visible')
+        poOms.getPriceCartDetail().each(($e1, index, $list) => {
             const v1= $e1.text()
             //const v3= $list.text()
             if(index == 9)

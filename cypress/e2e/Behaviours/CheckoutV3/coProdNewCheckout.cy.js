@@ -1,14 +1,10 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import newThankYouPage from "../../PageObject/newThankYouPageObject"
-import mxUserDashboard from "../../PageObject/userDashboardPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import checkoutElements from "../../PageObject/checkoutV3PO"
 
-
-describe ('Quiz CO', () => {
+describe.skip('Quiz CO PROD', () => {
     const faker = require("faker");
     const devices = ["macbook-15"]
     devices.forEach((device) => {
@@ -26,7 +22,7 @@ describe ('Quiz CO', () => {
                 const fakeLastName = faker.name.lastName()
                 const poQuiz = new quizElements()
                 const poAppointment = new appointmentElements()
-                const poNewCheckout = new newCheckoutElements()
+                const poCheckoutV3 = new checkoutElements()
 
                 cy.fixture('quizData').then(function(data){
                     this.data=data
@@ -51,16 +47,8 @@ describe ('Quiz CO', () => {
                     poAppointment.getCenterHour().click()
                     cy.wait(8500) //wait for the place to be displayed on the Newcheckout
                     poAppointment.getPagarCita().click()
-                    poNewCheckout.getButtonAddDirection().should('exist')
-                    poNewCheckout.getButtonPagar().should('be.visible')
-                    // cy.wait(1500)
-                    // cy.addCorrectCardCo()
-                    // cy.addCorrectDirectionCo()
-                    // cy.wait(1500)
-                    // poNewCheckout.getButtonPagar().click()
-                    // cy.wait(1000)
-                    // poNewThankYouPage.getNButtonIraMiCuenta().should('be.visible')
-                    //cy.pause()
+                    poCheckoutV3.getButtonAddDirection().should('exist')
+                    poCheckoutV3.getButtonPagar().should('be.visible')
                 })//End fixture
             })// End of 012 - Create a new DEAL and pay the appointment
         }

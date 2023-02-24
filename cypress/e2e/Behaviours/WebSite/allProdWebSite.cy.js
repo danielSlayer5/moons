@@ -1,5 +1,5 @@
 /// <reference types="Cypress"/>
-import webSiteElements from "../../PageObject/webSitePageObject"
+import webSiteElements from "../../PageObject/webSitePO"
 
 
 describe('TestCases for the visit to the sites of all the countries', () => {

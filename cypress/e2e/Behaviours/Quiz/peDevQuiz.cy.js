@@ -1,9 +1,9 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
 
-describe ('Quiz PE', () => {
+describe('Quiz PE', () => {
     const faker = require("faker")
     const devices = ["macbook-15"]
     devices.forEach((device) => {
@@ -15,7 +15,6 @@ describe ('Quiz PE', () => {
                     cy.visit(this.data.peQuizDev)
                 })
             })
-        describe('Execution of happy path for the test cases for the quiz', () => {
             it('001 - Answer Quiz with NO data', () => {
                 const poMxQuiz = new quizElements()
                 poMxQuiz.getFinalizarQuizButton().click()
@@ -150,7 +149,7 @@ describe ('Quiz PE', () => {
                     poMxQuiz.getContainerDisclaimerWa().should('be.visible').should('contain.text', this.data.waDisclaimer)
                 })//End fixture
             })// End of 010 - Answer only Q1, Q2, Q3 with incorrect Phone
-            it.only('012 - Answer all the questions correctly and create the deal', () => {
+            it('012 - Answer all the questions correctly and create the deal', () => {
                 const fakeFirstName = faker.name.firstName()
                 const fakeLastName = faker.name.lastName()
                 const poPeQuiz = new quizElements()
@@ -171,7 +170,6 @@ describe ('Quiz PE', () => {
                     poPeAppointment.getAppointmentModal().should('be.visible')
                 })//End fixture
             })// End of 011 - Answer only Q1, Q2, Q3 with incorrect Phone
-        })
         })// End Context
     })
 })//End Describe

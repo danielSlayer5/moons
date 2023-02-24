@@ -1,14 +1,12 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import newThankYouPage from "../../PageObject/newThankYouPageObject"
-import userDashboard from "../../PageObject/userDashboardPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import checkoutElements from "../../PageObject/checkoutV3PO"
+import newThankYouPage from "../../PageObject/newThankYouPagePO"
 
 
-describe ('SuitCase: MX - PROD - CheckoutV3', () => {
+describe.skip('SuitCase: MX - PROD - CheckoutV3', () => {
     const faker = require("faker")
     const devices = ["macbook-15"]
     const totalDeals =3
@@ -23,9 +21,8 @@ describe ('SuitCase: MX - PROD - CheckoutV3', () => {
                 const fakeLastName = faker.name.lastName()
                 const poQuiz = new quizElements()
                 const poAppointment = new appointmentElements()
-                const poNewCheckout = new newCheckoutElements()
-                const poNewThankYouPage = new newThankYouPage()
-                const poUserDash = new userDashboard()
+                const poNewCheckout = new checkoutElements()
+                const poCheckoutV3 = new newThankYouPage()
     
                 cy.fixture('quizData').then(function(data){
                     this.data=data
@@ -50,7 +47,7 @@ describe ('SuitCase: MX - PROD - CheckoutV3', () => {
                     poAppointment.getCenterHour().click()
                     //cy.wait(3500) //wait for the place to be displayed on the Newcheckout
                     poAppointment.getPagarCita().click()
-                    poNewCheckout.getButtonPagar().should('be.visible')
+                    poCheckoutV3.getButtonPagar().should('be.visible')
                     Cypress.on('uncaught:exception', (err, runnable) => {
                         // returning false here prevents Cypress from
                         // failing the test

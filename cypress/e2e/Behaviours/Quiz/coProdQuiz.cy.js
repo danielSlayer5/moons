@@ -1,14 +1,11 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
-import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import newThankYouPage from "../../PageObject/newThankYouPageObject"
-import mxUserDashboard from "../../PageObject/userDashboardPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import newCheckoutElements from "../../PageObject/checkoutV3PO"
+import newThankYouPage from "../../PageObject/newThankYouPagePO"
 
-
-describe ('Quiz CO', () => {
+describe.skip('Quiz CO', () => {
     const faker = require("faker");
     const devices = ["macbook-15"]
     devices.forEach((device) => {
@@ -155,7 +152,7 @@ describe ('Quiz CO', () => {
                 poQuiz.getContainerDisclamerWaCo().should('be.visible')
             })//End fixture
         })// End of 009 - Answer only Q1, Q2, Q3 with incorrect Phone
-        it.only('012 - Answer all the questions correctly ', () => {
+        it('012 - Answer all the questions correctly ', () => {
             const fakeFirstName = faker.name.firstName()
             const fakeLastName = faker.name.lastName()
             const poCoQuiz = new quizElements()

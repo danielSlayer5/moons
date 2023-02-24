@@ -1,8 +1,8 @@
 /// <reference types="Cypress"/>
 
-import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
+import quizElements from "../../PageObject/quizPO"
+import appointmentElements from "../../PageObject/appointmentPO"
+import checkoutElements from "../../PageObject/checkoutV3PO"
 
 describe ('New Checkout', () => {
     const faker = require("faker");
@@ -18,7 +18,7 @@ describe ('New Checkout', () => {
                 const fakeLastName = faker.name.lastName()
                 const poQuiz = new quizElements()
                 const poAppointment = new appointmentElements()
-                const poNewCheckout = new newCheckoutElements()
+                const poCheckoutV3 = new checkoutElements()
     
                 cy.fixture('quizData').then(function(data){
                     this.data=data
@@ -40,7 +40,7 @@ describe ('New Checkout', () => {
                     poAppointment.getCenterHour().click()
                     //cy.wait(3500) //wait for the place to be displayed on the Newcheckout
                     poAppointment.getPagarCita().click()
-                    poNewCheckout.getButtonPagar().should('be.visible')
+                    poCheckoutV3.getButtonPagar().should('be.visible')
                     Cypress.on('uncaught:exception', (err, runnable) => {
                         // returning false here prevents Cypress from
                         // failing the test

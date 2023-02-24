@@ -1,4 +1,4 @@
-class cartConfigurator
+class omsElements
 {
     getEmail(){
         return cy.get('#email', {timeout:10000})
@@ -206,4 +206,4 @@ class cartConfigurator
         return cy.contains('Confirmar')
     }
 }
-export default cartConfigurator
+export default omsElements

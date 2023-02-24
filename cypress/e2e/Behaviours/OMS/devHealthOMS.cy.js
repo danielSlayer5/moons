@@ -1,6 +1,6 @@
 /// <reference types="Cypress"/>
 
-import cartConfigurator from "../../PageObject/cartConfigurator"
+import omsElements from "../../PageObject/omsPO"
 
 describe('DEV - Validate the BACK of CartConfigurator getting some status from the APIs of Cart configrator', () =>{
     it('get status 200 from API GET all Carts ', () => {
@@ -81,7 +81,7 @@ describe('DEV - Validate the FRONT of CartConfigurator creating and deleting CAR
                 })//End Fixture
             })// End BeforeEach
             it('001 - CartConfigurator Login', () => {
-                const poCartConfigurator = new cartConfigurator()
+                const poOms = new omsElements()
                 Cypress.on('uncaught:exception', (err, runnable) => {
                     // returning false here prevents Cypress from
                     // failing the test
@@ -89,54 +89,52 @@ describe('DEV - Validate the FRONT of CartConfigurator creating and deleting CAR
                 })
                 cy.fixture('cartConfiguratorData').then(function(data){
                     cy.loginIntoCartConfigurator()
-                    poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-                    poCartConfigurator.getGloblalSearch().should('be.visible')
-                    poCartConfigurator.getSearchButton().should('be.disabled')
+                    poOms.getMainContainer().should('contain.text', this.data.titleUno)
+                    poOms.getGloblalSearch().should('be.visible')
+                    poOms.getSearchButton().should('be.disabled')
                 })
             })// End of 001 - CartConfigurator Login
             it('002 - Search an user', () => {
-                const poCartConfigurator = new cartConfigurator()
+                const poOms = new omsElements()
                 Cypress.on('uncaught:exception', (err, runnable) => {
                     // returning false here prevents Cypress from
                     // failing the test
                     return false
                 })
                 cy.fixture('cartConfiguratorData').then(function(data){
-                poCartConfigurator.getEmail().should('be.visible').type(this.data.userMailDev)
-                poCartConfigurator.getPassword().should('be.visible').type(this.data.userPassDev)
-                poCartConfigurator.getLogin().should('be.enabled').click()
-                cy.wait(1500)
-                poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-                poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.testUserMx)
-                poCartConfigurator.getSearchButton().click()
-                cy.wait(800)
-                poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-                poCartConfigurator.getResult().should('be.visible')
-                
+                    poOms.getEmail().should('be.visible').type(this.data.userMailDev)
+                    poOms.getPassword().should('be.visible').type(this.data.userPassDev)
+                    poOms.getLogin().should('be.enabled').click()
+                    cy.wait(1500)
+                    poOms.getMainContainer().should('contain.text', this.data.titleUno)
+                    poOms.getGloblalSearch().should('be.visible').type(this.data.testUserMx)
+                    poOms.getSearchButton().click()
+                    cy.wait(800)
+                    poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+                    poOms.getResult().should('be.visible')
                 })
             })// End of 002 - Search an user
             it('003 - Search an user and open the default options', () => {
-                const poCartConfigurator = new cartConfigurator()
+                const poOms = new omsElements()
                 Cypress.on('uncaught:exception', (err, runnable) => {
                     // returning false here prevents Cypress from
                     // failing the test
                     return false
                 })
                 cy.fixture('cartConfiguratorData').then(function(data){
-                poCartConfigurator.getEmail().should('be.visible').type(this.data.userMailDev)
-                poCartConfigurator.getPassword().should('be.visible').type(this.data.userPassDev)
-                poCartConfigurator.getLogin().should('be.enabled').click()
-                cy.wait(1500)
-                poCartConfigurator.getMainContainer().should('contain.text', this.data.titleUno)
-                poCartConfigurator.getGloblalSearch().should('be.visible').type(this.data.testUserMx)
-                poCartConfigurator.getSearchButton().click()
-                cy.wait(800)
-                poCartConfigurator.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
-                poCartConfigurator.getResult().should('be.visible')
-                poCartConfigurator.getButtonResult().click()
-                cy.wait(750)
-                poCartConfigurator.getMainUserContainer().should('be.visible')
-                
+                    poOms.getEmail().should('be.visible').type(this.data.userMailDev)
+                    poOms.getPassword().should('be.visible').type(this.data.userPassDev)
+                    poOms.getLogin().should('be.enabled').click()
+                    cy.wait(1500)
+                    poOms.getMainContainer().should('contain.text', this.data.titleUno)
+                    poOms.getGloblalSearch().should('be.visible').type(this.data.testUserMx)
+                    poOms.getSearchButton().click()
+                    cy.wait(800)
+                    poOms.getSecondTitle().should('be.visible').should('contain.text', this.data.titleDos)
+                    poOms.getResult().should('be.visible')
+                    poOms.getButtonResult().click()
+                    cy.wait(750)
+                    poOms.getMainUserContainer().should('be.visible')
                 })
             })// End of 003 - Search an user and go inside
             it('004 - Create cart with only- Cita', () => {
@@ -265,12 +263,12 @@ describe.skip('DEV - Validate the functionality of Payment Carts with the new ch
                 cy.cartAppointment()
                 cy.wait(1321)
                 //cy.createPaymentLink()
-                const poCartConfigurator = new cartConfigurator()
-                poCartConfigurator.getViewCart().click()
+                const poOms = new omsElements()
+                poOms.getViewCart().click()
                 cy.wait(900)
-                poCartConfigurator.getButtonConfirmCart().click()
-                poCartConfigurator.getButtonRealizarPago().click()
-                poCartConfigurator.getButtonLinkPago().click()
+                poOms.getButtonConfirmCart().click()
+                poOms.getButtonRealizarPago().click()
+                poOms.getButtonLinkPago().click()
                 cy.get('div .MuiChip-root').each(($e1, index, $list) => {
                     const newUrl = $e1.text()
                     // cy.log($e1)

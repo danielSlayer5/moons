@@ -1,23 +1,22 @@
 /// <reference types="Cypress"/>
 
 import quizElements from "../../PageObject/quizPageObject"
-import appointmentElements from "../../PageObject/appointmentPageObject"
-import newCheckoutElements from "../../PageObject/newCheckoutPageObject"
+import appointmentElements from "../../PageObject/appointmentPO"
+import newCheckoutElements from "../../PageObject/checkoutV3PO"
 import mxOldThankYouPage from "../../PageObject/MxDevOldThankYouPage"
-import newThankYouPage from "../../PageObject/newThankYouPageObject"
-import userDashboard from "../../PageObject/userDashboardPageObject"
+import newThankYouPage from "../../PageObject/newThankYouPagePO"
+import userDashboard from "../../PageObject/userDashPO"
 
 
-describe ('Quiz MX', () => {
+describe('UserDashboard MX', () => {
     const faker = require("faker");
     const devices = ["macbook-15"]
     devices.forEach((device) => {
         context ('Execution of test cases for the QUIZ MX', () => {
             beforeEach(function(){
                 cy.viewport(device)
-            })
-        
-        it.only('01 - Create a new deal, pay the appointment and go to the main view of UD', () => {
+            }) 
+        it('01 - Create a new deal, pay the appointment and go to the main view of UD', () => {
             const fakeFirstName = faker.name.firstName()
             const fakeLastName = faker.name.lastName()
             const poQuiz = new quizElements()

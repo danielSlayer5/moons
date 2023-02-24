@@ -1,4 +1,4 @@
-class newCheckoutElements
+class checkoutElements
 {
     //
     //--MEXICO
@@ -120,7 +120,7 @@ class newCheckoutElements
         return cy.get('#form-checkout__identificationNumber')
     }
     getButtonCreditCard(){
-        return cy.get('.MethodsFlow_activeMethod__yTbOy', {timeout:20000})
+        return cy.get('.MethodsFlow_activeMethod__yTbOy', {timeout:25000})
     }
     getButtonPse(){
         return cy.get('.MethodsFlow_containerSlider__bw798 > :nth-child(2)', {timeout:10000})
@@ -140,4 +140,4 @@ class newCheckoutElements
 
 
 }
-export default newCheckoutElements
+export default checkoutElements

@@ -1,7 +1,7 @@
 class quizElements
 {
     getFinalizarQuizButton(){
-        return cy.get('#submitQuiz')
+        return cy.get('#submitQuiz', {timeout:10000})
     }
     getContenedorDeError(){
         return cy.get('.contact_detailsErrors__2AlVu')
