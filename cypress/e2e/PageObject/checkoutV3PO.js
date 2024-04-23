@@ -25,6 +25,24 @@ class checkoutElements
         return cy.get('#Check_Flow_Card', {timeout:15000})
     }
     //
+    // -- ADD CUPON --
+    getCuponfield(){
+        return cy.get('#couponInput', { timeout : 5000})
+    }
+    getCuponCode(){
+        return cy.get('#referralInput' , { timeout : 5000})
+    }
+    getAplicateButton(){
+        return cy.contains('Aplicar', { timeout : 5000})
+    }
+    //
+    getMainModalCoupon(){
+        return cy.get('.AlertModal_modal__MjaSG', { timeout : 30000})
+    }
+    getMainModalCouponButton(){
+        return cy.get('#AlertModal_PrimaryButton' , {timeout : 10000})
+    }
+    //
     //  -- DIRECTION CO
     //
     getButtonAddDirection(){
@@ -36,8 +54,11 @@ class checkoutElements
     getStreet(){
         return cy.get('#Street')
     }
-    getAddressNumber(){
+    getNumber(){
         return cy.get('#Address_Number')
+    }
+    getZipcode(){
+        return cy.get('#Zip_Code')
     }
     getReferences(){
         return cy.get('#References')

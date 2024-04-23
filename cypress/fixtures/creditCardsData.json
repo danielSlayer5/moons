@@ -6,6 +6,10 @@
     "monthYear": "1125",
     "cvc": "123",
 
+    "mxStreet": "Obrero Mundial",
+    "mxAddressNumber" : "306",
+    "mxZip_Code": "03000",
+
     "coStreet": "Calle A12 - #23 opción",
     "coAddressNumber": "#98 - a12 B34",
     "coApto": "Aptó 12- #1 2a",

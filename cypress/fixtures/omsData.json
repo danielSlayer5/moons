@@ -1,12 +1,14 @@
 {
     "mxCartConfiguratorProd": "https://carritos.moonsdental.com/search",
-    "mxCartConfiguratorDev": "https://dev-custom-payments-generator.web.app/login",
     "userMailDev": "cesar.limon@mymoons.mx",
     "userPassDev": "12345678",
+
+    "userToDeleteCarts": "userTest.3884@cypress.mx",
 
     "userMailProd": "test.qa@mymoons.mx",
     "userPassProd": "123qwe",
 
+    "mainTitle": "Carritos de pago",
     "titleUno": "Busca y seleciona un usuario",
     "titleDos": "Resultado de la búsqueda",
     "titleTres": "Aún no tienes carritos activos",
@@ -17,8 +19,11 @@
     "user2": "correo.4999285@mymoons.mx",
     "user4": "correo.8583078@mymoons.mx",
 
-    "paymentCashTestUserMx01": "correo.6869845@mymoons.mx",
+    "cashPaymentUserMx01": "userTest.4506@cypress.mx",
     "CartPrice": "$248",
+
+    "cashPaymentUserMx02": "userTest.6686@cypress.mx",
+    "CartPrice02": "$228",
     
     "listProduct1": "Más vendidos",
     "listProduct2": "Citas",
@@ -27,8 +32,8 @@
     "listProduct5": "Servicios Dentales",
 
     "testUserMx": "testCypress1@gmail.mx",
-    "nameUserMx": "test cypress",
-    "lastnameUserMx": "uno dev",
+    "nameUserMx": "Test Uno Dev",
+
     "testAppointment": "correo.7648279@mymoons.mx",
     "testApartado": "",
     "testPagoComp": "",
@@ -47,5 +52,8 @@
     "apiGetAllPayments": "/ecommerce/payments?limit=1",
     "apiGetAllDiscounts": "/ecommerce/discount-codes?limit=1",
     "apiGetAllOrders": "/oms/orders",
-    "apiCheckoutHealth": "/health"
+    "apiCheckoutHealth": "/health",
+
+    "cuponMXReferall": "REFERIDOSMEXICO",
+    "cuponMXCode": "3Z7PXY"
 }
