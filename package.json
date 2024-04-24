@@ -4,8 +4,7 @@
     "faker": "^5.5.3"
   },
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:runAllCountries": "cypress run --browser chrome --spec cypress/e2e/Behaviours/*.cy.js npx cypress run --record --key d10db638-e27d-4098-9a52-5a1cf61a93ea",
-    "cypress:runOMS": "cypress run --browser chrome --spec cypress/e2e/Behaviours/devHealthCartConfigurator.cy.js"
+    "runOnChrome" : "cypress run --browser chrome",
+    "cypress:open": "cypress open"
   }
 }

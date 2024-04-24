@@ -3,7 +3,7 @@
 import omsElements from "../../PageObject/omsPO"
 import checkoutElements from "../../PageObject/checkoutV3PO"
 import newThankYouPage from "../../PageObject/newThankYouPagePO"
-//npx cypress run --record --key 62418e84-7fbd-4ce5-a2c4-f5440a0e75f9 
+//npx cypress run --record --key 62418e84-7fbd-4ce5-a2c4-f5440a0e75f9
 const environment = Cypress.env('omsDev')
 
 describe('OMS - Pay LITE treatment', { retries: 2 }, () => {
@@ -79,7 +79,7 @@ describe('OMS - Pay LITE treatment', { retries: 2 }, () => {
         })// End Context
     })// End devices
 })//End Describe
-describe('OMS - Pay LITE treatment with referral discount added in OMS', () => {
+describe('OMS - Pay LITE treatment with referral discount added in OMS', { retries: 2 }, () => {
     //const devices = ["ipad-2","iphone-6"]
     const devices = ["macbook-15"]
     devices.forEach((device) => {
